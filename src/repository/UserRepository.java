@@ -27,29 +27,28 @@ public class UserRepository {
         return Optional.of(_user);
     }
 
-    public User deleteUser(long _id) {
+    public boolean deleteUser(long _id) {
         Optional<User> userOptional = findById(_id);
 
         if (userOptional.isEmpty()) {
             System.out.println("User not found for delete");
-            return null;
+            return false;
         }
 
         users.remove(userOptional.get());
-
-        return userOptional.get();
+        return true;
     }
 
-    public User updateUser(String _name, long _id) {
+    public boolean updateUser(String _name, long _id) {
         Optional<User> userOptional = findById(_id);
 
         if (userOptional.isEmpty()) {
-            System.out.println("User for found for update");
-            return null;
+            System.out.println("User not found for update");
+            return false;
         }
 
         User user = userOptional.get();
         user.setName(_name);
-        return user; // newUser
+        return true;
     }
 }

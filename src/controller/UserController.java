@@ -16,11 +16,11 @@ public class UserController {
         return userRepository.addUser(_user);
     }
 
-    public User deleteUser(long _id) {
+    public boolean deleteUser(long _id) {
         return userRepository.deleteUser(_id);
     }
 
-    public User updateUser(String _name, long _id) {
+    public boolean updateUser(String _name, long _id) {
         return userRepository.updateUser(_name, _id);
     }
 }

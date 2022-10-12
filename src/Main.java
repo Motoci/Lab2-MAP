@@ -10,7 +10,7 @@ public class Main {
         user.setRole(Role.ADMIN);
 
         UserController userController = new UserController();
-        System.out.println(userController.addUser(user));
+        System.out.println((userController.addUser(user)).get());
         System.out.println(userController.updateUser("KBD", 1));
         userController.deleteUser(1);
     }
